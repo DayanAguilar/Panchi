@@ -1,21 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Adrián Zamorano</title>
-</head>
 <body>
     <header>
         <h1>Despedida para Mi Mejor Amigo Panchi Jr.</h1>
     </header>
     <nav>
-        <a href="#" data-section="gonchi">NUESTAS FOTOS</a>
+        <a href="#" data-section="gonchi">NUESTRAS FOTOS</a>
     </nav>
     <div class="container">
         <p> PAPI QUERIDO QUERÍAMOS HACERTE ESTE PEQUEÑO DETALLE PARA QUE LO TENGAS SIEMPRE QUE QUIERAS VERLO....</p>
-        <div id="gonchi" class="section">
+        <div id="gonchi" class="section active">
             <div class="paragraph">
                 <center>
                     <h1>RECUERDOS 2009 - 2024 </h1>
@@ -27,24 +19,24 @@
                     <img src="/Images/2.jpg">
                     <img src="/day/2.jpg">
                     <img src="/Images/3.jpg">
-                    <img src="/day/3.jpg" >
+                    <img src="/day/3.jpg">
                     <img src="/Images/4.jpg">
-                    <img src="/day/4.jpg" >
+                    <img src="/day/4.jpg">
                     <img src="/Images/5.jpg">
-                    <img src="/day/5.jpg" >
+                    <img src="/day/5.jpg">
                     <img src="/Images/6.jpg">
-                    <img src="/day/6.jpg" >
+                    <img src="/day/6.jpg">
                     <img src="/Images/7.jpg">
-                    <img src="/day/7.jpg" >
+                    <img src="/day/7.jpg">
                     <img src="/Images/8.jpg">
-                    <img src="/day/8.jpg" >
+                    <img src="/day/8.jpg">
                     <img src="/Images/9.jpg">
-                    <img src="/day/9.jpg" >
+                    <img src="/day/9.jpg">
                     <img src="/Images/10.jpg">
-                    <img src="/day/10.jpg" >
+                    <img src="/day/10.jpg">
                     <img src="/Images/11.jpg">
-                    <img src="/day/11.jpg" >
-                    <img src="/Images/12.jpg" >
+                    <img src="/day/11.jpg">
+                    <img src="/Images/12.jpg">
                     <img src="/day/12.jpg">
                     <img src="/Images/13.jpg">
                     <img src="/Images/14.jpg">
@@ -59,11 +51,11 @@
             </div>
             <div class="letter-section">
                 <center>
-                <h3> Carta Gonchi </h3>
-                <button id="readLetterBtn">Leer Carta</button>
+                    <h3>Carta Gonchi</h3>
+                    <button class="readLetterBtn" data-target="letterContentGonchi">Leer Carta</button>
                 </center>
-                <div id="letterContent" style="display: none;">
-                    <br><br><br>    
+                <div id="letterContentGonchi" class="letterContent" style="display: none;">
+                    <br><br><br>
                     <pre>
 Hola mi bro querido, cuando estés leyendo esta cartita ya estarás en Santa puej hahahaah…..
 
@@ -88,11 +80,11 @@ Grover
             </div>
             <div class="letter-section">
                 <center>
-                <h3> Carta Daycho </h3>
-                <button id="readLetterBtn">Leer Carta</button>
+                    <h3>Carta Daycho</h3>
+                    <button class="readLetterBtn" data-target="letterContentDaycho">Leer Carta</button>
                 </center>
-                <div id="letterContent" style="display: none;">
-                    <br><br><br>    
+                <div id="letterContentDaycho" class="letterContent" style="display: none;">
+                    <br><br><br>
                     <pre>
 Mi bro, hermano del alma. 
 Te quiero desear las mejores de las suertes ahora que viviras en otra ciudad. Siempre seras uno de mis mas grandes amigos por todas las cosas que pasamos y quiero que sepas que no podia haber deseado otro tipo de compañerismo en la vida. 
@@ -135,10 +127,11 @@ Dayler
             lightbox.style.display = 'none';
         });
 
-        document.getElementById('readLetterBtn').addEventListener('click', function() {
-            const letterContent = document.getElementById('letterContent');
-            letterContent.style.display = letterContent.style.display === 'none' ? 'block' : 'none';
+        document.querySelectorAll('.readLetterBtn').forEach(button => {
+            button.addEventListener('click', function() {
+                const target = document.getElementById(this.getAttribute('data-target'));
+                target.style.display = target.style.display === 'none' ? 'block' : 'none';
+            });
         });
     </script>
 </body>
-</html>
