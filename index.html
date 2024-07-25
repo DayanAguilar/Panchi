@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Adrián Zamorano</title>
+</head>
+<body>
+    <header>
+        <h1>Despedida para Mi Mejor Amigo Panchi Jr.</h1>
+    </header>
+    <nav>
+        <a href="#" data-section="gonchi">Fotos con Gonchi</a>
+        <a href="#" data-section="daycho">Fotos con Dayler</a>
+        <a href="#" data-section="charly">Fotos con Charly</a>
+    </nav>
+    <div class="container">
+        <div id="gonchi" class="section">
+            <div class="paragraph">
+                <center>
+                    <h1>Fotos</h1>
+                    <p>Querido amigo, recordaré siempre los momentos felices que hemos compartido...</p>
+                </center>
+                <div class="collage">
+                    <img src="/Images/1.jpg" alt="Imagen 1">
+                    <img src="/Images/2.jpg" alt="Imagen 2">
+                    <img src="/Images/3.jpg" alt="Imagen 3">
+                    <img src="/Images/4.jpg" alt="Imagen 4">
+                    <img src="/Images/5.jpg" alt="Imagen 5">
+                    <img src="/Images/6.jpg" alt="Imagen 6">
+                    <img src="/Images/7.jpg" alt="Imagen 7">
+                    <img src="/Images/8.jpg" alt="Imagen 8">
+                    <img src="/Images/9.jpg" alt="Imagen 9">
+                    <img src="/Images/10.jpg" alt="Imagen 10">
+                    <img src="/Images/11.jpg" alt="Imagen 11">
+                </div>
+            </div>
+            <div class="letter-section">
+                <center>
+                <button id="readLetterBtn">Leer Carta</button>
+                </center>
+                <div id="letterContent" style="display: none;">
+                    <h3> Carta para mi Hermano </h3>
+                    <pre>
+Hola mi bro querido, cuando estés leyendo esta cartita ya estarás en Santa puej hahahaah…..
+
+Primero que nada me gustaría decirte que si vuelves a Cocha algún día siempre serás bienvenido por nosotros (“Mientras no hables como Camba basta haha”), aunque ya lo sepas, te lo vuelvo a recalcar…
+Para continuar, quiero expresarte todo el cariño que sabes que te tengo que aunque no se expresarlos muy bien físicamente.. quizás con un abrazo… me es más facil expresarlos escribiéndolos
+Quiero y deseo que te vaya muy bien en la vida… en esta nueva etapa que tendrás en Santa… quiero que sepas que te aprecio mucho… haz estado probablemente la mayor parte de mi vida… aguantándome, protegiéndome, entendiéndome, ayudándome y muchas cosas más que realmente me encuentro muy agradecido por ello… pero por sobre todo… de todo lo que pueda pasar… simplemente estabas ahí para mí.
+
+Sinceramente, ahora que te vas… me estoy destrozando por dentro… aunque no sea muy lejos y podremos encontrarnos de vez en cuando si Diosito así nos lo permite… ya no estarás a un paso de mí, a una llamada, a un mensaje de poder encontramos en cualquier lugar… pero sé que te irá mejor y por eso es que me alegro infinitamente por ti… 
+
+Quiero confesarte que son dos las personas por las que he llorado con mucho sentimiento en una despedida... la primera fuer por mi papá y la segunda ERES VOS es una mezcla muy extraña este sentimiento de alegría, nostalgia, y un poco de tristeza… todos dicen que lo hombres no lloran… y creo que tienen razón… por que siempre tienen que ser el fuerte y porque quizás a algunos les da vergüenza que los vean así… pues a mí no… y lo hago con mucho orgullo, porque por todo lo que te dije anteriormente, te habrás dado cuenta que eres una persona muy especial para mí… puedo estar en paz… puedo compartirte mis buenos y malos momentos… puedes hacerme reír por muy mal que la esté pasando… puedo olvidarme de todo lo que ocurre en el mundo… en fin… porque contigo puedo ser yo…
+
+Para terminar mi hermano querido… nuevamente te deseo todo lo mejor en esta nueva etapa de tu vida en un nuevo lugar… nuevas cosas… nuevas experiencias… nuevas personas… nuevo casi todo mi bro… Sabes que és lo que nunca va a cambiar… 
+Todo el cariño que siento por ti hermano… y el espacio que tendrás en mi corazón.
+
+No es un Adiós… es un Hasta Pronto!!
+
+Te quiero mucho!
+
+Grover.
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <div id="daycho" class="section">
+            <div class="paragraph">
+                <h2>Momentos Tristes</h2>
+                <p>A veces la tristeza nos invade, pero sé que esos momentos nos hicieron más fuertes...</p>
+            </div>
+        </div>
+        <div id="charly" class="section">
+            <div class="paragraph">
+                <h2>Momentos en Soledad</h2>
+                <p>En esos momentos de soledad, siempre supiste cómo hacerme sentir acompañado...</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="lightbox" id="lightbox">
+        <img src="" alt="Ampliar imagen">
+    </div>
+
+    <script>
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
+                document.getElementById(this.getAttribute('data-section')).classList.add('active');
+            });
+        });
+
+        const collageImages = document.querySelectorAll('.collage img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = lightbox.querySelector('img');
+
+        collageImages.forEach(image => {
+            image.addEventListener('click', () => {
+                lightboxImage.src = image.src;
+                lightbox.style.display = 'flex';
+            });
+        });
+
+        lightbox.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+        });
+
+        document.getElementById('readLetterBtn').addEventListener('click', function() {
+            const letterContent = document.getElementById('letterContent');
+            letterContent.style.display = letterContent.style.display === 'none' ? 'block' : 'none';
+        });
+    </script>
+</body>
+</html>
